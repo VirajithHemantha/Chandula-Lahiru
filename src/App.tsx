@@ -31,7 +31,7 @@ const INVITATION = {
 
 const backgroundMusic = "/Brooklyn Duo - A Thousand Years [WEDDING VERSION].mp3";
 const googleScriptUrl =
-  "https://script.google.com/macros/s/AKfycbyHN1BshRvxx96eATyW9C0rtkaNFXAoNAe9lh0TiO1uJ-eKzlwXTKglqTUSz5ZH-CoKqA/exec";
+  "https://script.google.com/macros/s/AKfycbw3f4cbJzxOlp5p5EMcg8m-TXZjcy7v2TkdqQUfoUA2CgV1Zl_YURgdMHQuVlTMBDu86w/exec";
 
 const HERO_BACKGROUND_IMAGE = "/ChatGPT Image May 22, 2026, 12_24_57 AM.png";
 const DETAILS_BACKGROUND_IMAGE = "/ChatGPT Image May 22, 2026, 12_26_02 AM.png";
@@ -608,9 +608,6 @@ export default function WeddingInvitation() {
 
                     <div className="space-y-5 mb-10">
                       <div className="flex flex-col items-center gap-2">
-                        <span className="text-[9px] tracking-[0.6em] font-bold text-[#0369a1]/50">
-                          වධූ
-                        </span>
                         <h3 className="text-5xl md:text-7xl text-[#0284c7] leading-none">
                           {INVITATION.couple.bride}
                         </h3>
@@ -628,9 +625,6 @@ export default function WeddingInvitation() {
 
                     <div className="space-y-5 mt-10">
                       <div className="flex flex-col items-center gap-2">
-                        <span className="text-[9px] tracking-[0.6em] font-bold text-[#0369a1]/50">
-                          වරයා
-                        </span>
                         <h3 className="text-5xl md:text-7xl text-[#0284c7] leading-none">
                           {INVITATION.couple.groom}
                         </h3>
