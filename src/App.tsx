@@ -5,13 +5,13 @@ import { Sparkles, MapPin, Calendar, Clock, Send, ChevronDown } from "lucide-rea
 const INVITATION = {
   couple: {
     bride: "චන්දුලා",
-    groom: "ලහිරු",
+    groom: "ළහිරු",
     brideFull: "චන්දුලා පෙරේරා",
-    groomFull: "ලහිරු පෙරේරා",
+    groomFull: "ළහිරු පෙරේරා",
   },
   date: {
     displayNumeric: "04 . 12 . 2026",
-    displayLong: "04 දෙසැම්බර් 2026",
+    displayLong: "2026 දෙසැම්බර් 04",
     countdownTarget: "2026-12-04T08:26:00+05:30",
   },
   time: {
@@ -26,14 +26,14 @@ const INVITATION = {
     mapQuery: "Waters Edge, 316 Ethul kotte road, Battaramulla",
     googleMapsLink: "https://www.google.com/maps/search/?api=1&query=Waters+Edge+316+Ethul+kotte+road+Battaramulla",
   },
-  rsvpContacts: ["ලහිරු: 071-XXXXXXX", "චන්දුලා: 071-XXXXXXX"],
+  rsvpContacts: [],
 } as const;
 
 const backgroundMusic = "/sinhanada.net-Thawthisa-Lowen-Ashen-Sheenadi-Wedding-Song.mp3";
 const googleScriptUrl =
   "https://script.google.com/macros/s/AKfycbz9nTA9-WC4pvZtykcnLJ1cvaA1QzXCZxyTsQPnifaS1XVy7lDJFp0Vv_VZlPMazfaA/exec";
 
-const HERO_BACKGROUND_IMAGE = "/ChatGPT Image May 14, 2026, 03_15_02 PM.png";
+const HERO_BACKGROUND_IMAGE = "/pre/WhatsApp Image 2026-06-24 at 22.45.58.jpeg";
 const DETAILS_BACKGROUND_IMAGE = "/ChatGPT Image May 22, 2026, 12_26_02 AM.png";
 const TIMELINE_BACKGROUND_IMAGE = "/ChatGPT Image May 22, 2026, 12_28_21 AM.png";
 const WISHES_BACKGROUND_IMAGE = "/ChatGPT Image May 14, 2026, 03_54_56 PM.png";
@@ -282,6 +282,7 @@ export default function WeddingInvitation() {
     if (isPlaying) {
       audioRef.current.pause();
     } else {
+      audioRef.current.volume = 0.2;
       audioRef.current.play();
     }
 
@@ -291,6 +292,7 @@ export default function WeddingInvitation() {
   useEffect(() => {
     if (isOpened && !isPlaying && !hasAttemptedAutoplay && audioRef.current) {
       setHasAttemptedAutoplay(true);
+      audioRef.current.volume = 0.2;
 
       audioRef.current
         .play()
@@ -403,7 +405,7 @@ export default function WeddingInvitation() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 2, delay: 0.8 }}
                     className="text-4xl md:text-7xl text-[#c5a059] mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)] font-bold"
-                  ><span className="inline-flex flex-col items-center justify-center gap-1 text-center"><span className="text-[0.75em] md:text-[0.8em] md:text-[0.65em] uppercase tracking-[0.2em] font-sans opacity-100 leading-none mt-1 mb-1">Wedding Invitation</span><span className="leading-none">විවාහ ආරාධනය</span></span></motion.h2>
+                  ><span className="inline-flex flex-col items-center justify-center gap-1 text-center text-white"><span className="text-[0.75em] md:text-[0.8em] md:text-[0.65em] uppercase tracking-[0.2em] font-sans opacity-100 leading-none mt-1 mb-1">Wedding Invitation</span><span className="leading-none">විවාහ ආරාධනය</span></span></motion.h2>
 
                   <motion.h3
                     initial={{ opacity: 0, y: 15 }}
@@ -457,8 +459,8 @@ export default function WeddingInvitation() {
                 <motion.p
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-[10px] md:text-xs tracking-[0.6em] font-bold text-[#8c6b2b] drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
-                ><span className="inline-flex flex-col items-center justify-center gap-1 text-center"><span className="text-[0.75em] md:text-[0.8em] md:text-[0.65em] uppercase tracking-[0.2em] font-sans opacity-100 leading-none mt-1 mb-1">Wedding Invitation</span><span className="leading-none">විවාහ ආරාධනය</span></span></motion.p>
+                  className="text-[10px] md:text-xs tracking-[0.6em] font-bold text-black drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
+                ><span className="inline-flex flex-col items-center justify-center gap-1 text-center text-white"><span className="text-[0.75em] md:text-[0.8em] md:text-[0.65em] uppercase tracking-[0.2em] font-sans opacity-100 leading-none mt-1 mb-1">Wedding Invitation</span><span className="leading-none">විවාහ ආරාධනය</span></span></motion.p>
 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -466,17 +468,17 @@ export default function WeddingInvitation() {
                   transition={{ delay: 0.15, duration: 0.8 }}
                   className="mt-10"
                 >
-                  <h1 className="text-[3.25rem] leading-none sm:text-7xl md:text-8xl text-[#8c6b2b] italic leading-none drop-shadow-[0_0_15px_rgba(255,255,255,0.9)]">
+                  <h1 className="text-[3.25rem] leading-none sm:text-7xl md:text-8xl text-black italic leading-none drop-shadow-[0_0_15px_rgba(255,255,255,0.9)]">
                     <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Chandula</span><span>{INVITATION.couple.bride}</span></span>
                   </h1>
 
                   <div className="mt-4 md:mt-6 flex items-center justify-center gap-3 md:gap-5">
-                    <div className="h-px w-14 bg-[#8c6b2b]/40" />
-                    <span className="text-4xl md:text-5xl text-[#8c6b2b] drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] font-bold"><span className="inline-flex flex-col items-center justify-center gap-1 text-center"><span className="text-[0.75em] md:text-[0.8em] md:text-[0.65em] uppercase tracking-[0.2em] font-sans opacity-100 leading-none mt-1 mb-1">&</span><span className="leading-none">සහ</span></span></span>
-                    <div className="h-px w-14 bg-[#8c6b2b]/40" />
+                    <div className="h-px w-14 bg-black/40" />
+                    <span className="text-4xl md:text-5xl text-black drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] font-bold"><span className="inline-flex flex-col items-center justify-center gap-1 text-center"><span className="text-[0.75em] md:text-[0.8em] md:text-[0.65em] uppercase tracking-[0.2em] font-sans opacity-100 leading-none mt-1 mb-1">&</span><span className="leading-none">සහ</span></span></span>
+                    <div className="h-px w-14 bg-black/40" />
                   </div>
 
-                  <h1 className="mt-4 md:mt-6 text-[3.25rem] leading-none sm:text-7xl md:text-8xl text-[#8c6b2b] italic leading-none drop-shadow-[0_0_15px_rgba(255,255,255,0.9)]">
+                  <h1 className="mt-4 md:mt-6 text-[3.25rem] leading-none sm:text-7xl md:text-8xl text-black italic leading-none drop-shadow-[0_0_15px_rgba(255,255,255,0.9)]">
                     <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Lahiru</span><span>{INVITATION.couple.groom}</span></span>
                   </h1>
                 </motion.div>
@@ -487,15 +489,15 @@ export default function WeddingInvitation() {
                   transition={{ delay: 0.35, duration: 0.8 }}
                   className="mt-12 space-y-5"
                 >
-                  <p className="text-sm sm:text-base md:text-xl tracking-[0.15em] sm:tracking-[0.25em] text-[#8c6b2b] font-bold drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">
+                  <p className="text-sm sm:text-base md:text-xl tracking-[0.15em] sm:tracking-[0.25em] text-black font-bold drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">
                     <span className="inline-flex flex-col items-center"><span className="text-[0.8em] md:text-[0.65em] font-sans uppercase opacity-100">04 December 2026</span><span>{INVITATION.date.displayLong}</span></span> · <span className="inline-flex flex-col items-center"><span className="text-[0.8em] md:text-[0.65em] font-sans uppercase opacity-100">08:26 AM</span><span>{INVITATION.time.ceremonyStart}</span></span>
                   </p>
 
-                  <p className="text-[#8c6b2b] text-sm sm:text-base md:text-lg tracking-[0.1em] sm:tracking-[0.15em] font-semibold leading-relaxed max-w-2xl mx-auto"><span className="inline-flex flex-col items-center justify-center gap-1 text-center"><span className="text-[0.75em] md:text-[0.8em] md:text-[0.65em] uppercase tracking-[0.2em] font-sans opacity-100 leading-none mt-1 mb-1">Together with our families, we joyfully invite you to celebrate our special day.</span><span className="leading-none">අපගේ ආදරණීය පවුල් සමඟ එක්ව, අපගේ ජීවිතයේ සොඳුරුතම දිනය සැමරීමට ඔබගේ ගෞරවනීය පැමිණීම ආදරයෙන් බලාපොරොත්තු වෙමු.</span></span></p>
+                  <p className="text-black drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] text-sm sm:text-base md:text-lg tracking-[0.1em] sm:tracking-[0.15em] font-semibold leading-relaxed max-w-2xl mx-auto"><span className="inline-flex flex-col items-center justify-center gap-1 text-center"><span className="text-[0.75em] md:text-[0.8em] md:text-[0.65em] uppercase tracking-[0.2em] font-sans opacity-100 leading-none mt-1 mb-1">Together with our families, we joyfully invite you to celebrate our special day.</span><span className="leading-none">අපගේ ආදරණීය පවුල් සමඟ එක්ව, අපගේ ජීවිතයේ සොඳුරුතම දිනය සැමරීමට ඔබගේ ගෞරවනීය පැමිණීම ආදරයෙන් බලාපොරොත්තු වෙමු.</span></span></p>
 
                   <a
                     href="#details"
-                    className="inline-flex items-center justify-center gap-2 mt-4 md:mt-6 px-6 py-3 md:px-8 md:py-4 bg-[#8c6b2b] text-white text-[10px] md:text-xs font-bold tracking-[0.4em] shadow-xl hover:bg-black transition-colors"
+                    className="inline-flex items-center justify-center gap-2 mt-4 md:mt-6 px-6 py-3 md:px-8 md:py-4 bg-black text-white text-[10px] md:text-xs font-bold tracking-[0.4em] shadow-xl hover:bg-[#8c6b2b] transition-colors"
                   >
                     <span className="inline-flex flex-col items-center justify-center gap-1 text-center"><span className="text-[0.75em] md:text-[0.8em] md:text-[0.65em] uppercase tracking-[0.2em] font-sans opacity-100 leading-none mt-1 mb-1">See Details</span><span className="leading-none">විස්තර බලන්න</span></span>
                     <ChevronDown className="w-4 h-4" />
@@ -645,8 +647,9 @@ export default function WeddingInvitation() {
                           <div className="text-[9px] tracking-[0.5em] font-bold text-[#8c6b2b]/40">
                             වේලාව
                           </div>
-                          <div className="text-sm md:text-base text-[#8c6b2b] tracking-wide font-bold">
-                            පෝරු උත්සවය <span className="inline-flex flex-col items-center"><span className="text-[0.8em] md:text-[0.65em] font-sans uppercase opacity-100">08:26 AM</span><span>{INVITATION.time.ceremonyStart}</span></span>ට
+                          <div className="text-sm md:text-base text-[#8c6b2b] tracking-wide font-bold flex flex-col gap-1 mt-1">
+                            <span>පෝරුව චාරිත්‍ර</span>
+                            <span className="text-[0.8em] md:text-[0.65em] font-sans uppercase opacity-100 leading-none mb-0.5">08:26 AM</span>
                           </div>
                         </div>
                       </div>
@@ -762,7 +765,7 @@ export default function WeddingInvitation() {
                     />
 
                     <h2 className="text-3xl md:text-6xl text-white tracking-[0.25em] md:tracking-[0.4em] font-bold leading-tight">
-                      <span className="inline-flex flex-col items-center"><span className="text-[0.65em] md:text-[0.5em] uppercase font-sans tracking-widest opacity-100 mb-2">Save the Date</span><span>මෙම දිනය <span className="mx-2 md:mx-4 text-[#fef08a]">සුරකින්න</span></span></span>
+                      <span className="inline-flex flex-col items-center"><span className="text-[0.65em] md:text-[0.5em] uppercase font-sans tracking-widest opacity-100 mb-2">Save the Date</span><span>මෙම දිනය වෙන් කර තබා ගන්න</span></span>
                     </h2>
 
                     <div className="mt-10 flex items-center justify-center gap-6">
@@ -1190,7 +1193,7 @@ export default function WeddingInvitation() {
                               setWishStatus("idle");
                               setWishForm((prev) => ({ ...prev, name: e.target.value }));
                             }}
-                            className="w-full bg-transparent border-b border-[#fef08a]/60 px-0 py-4 text-[#8c6b2b] placeholder:text-[#fef08a]/30 focus:outline-none focus:border-[#8c6b2b] transition-all text-base tracking-widest font-numeric"
+                            className="w-full bg-transparent border-b border-[#8c6b2b]/30 px-0 py-4 text-slate-800 placeholder:text-[#8c6b2b]/50 focus:outline-none focus:border-[#8c6b2b] transition-all text-base tracking-widest font-numeric"
                             required
                           />
                           <div className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#8c6b2b] transition-all duration-500 group-focus-within:w-full" />
@@ -1210,7 +1213,7 @@ export default function WeddingInvitation() {
                               setWishStatus("idle");
                               setWishForm((prev) => ({ ...prev, message: e.target.value }));
                             }}
-                            className="w-full bg-transparent border-b border-[#fef08a]/60 px-0 py-4 text-[#8c6b2b] placeholder:text-[#fef08a]/30 focus:outline-none focus:border-[#8c6b2b] transition-all text-sm tracking-widest resize-none leading-relaxed font-numeric"
+                            className="w-full bg-transparent border-b border-[#8c6b2b]/30 px-0 py-4 text-slate-800 placeholder:text-[#8c6b2b]/50 focus:outline-none focus:border-[#8c6b2b] transition-all text-sm tracking-widest resize-none leading-relaxed font-numeric"
                             required
                           />
                           <div className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#8c6b2b] transition-all duration-500 group-focus-within:w-full" />
