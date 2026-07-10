@@ -191,6 +191,28 @@ function CountdownTimer({ isDark = false }: { isDark?: boolean }) {
 
 
 export default function WeddingInvitation() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const guestName = urlParams.get("name") || "";
+  const guestPrefix = urlParams.get("prefix") || "";
+  const guestSuffix = urlParams.get("suffix") || "";
+
+  let sinhalaInvitationText = "ඔබට / ඔබ දෙපළට / ඔබ සැමට කෙරෙන ගෞරවණීය ඇරයූමයි!";
+  if (guestSuffix === 'single') {
+    sinhalaInvitationText = "ඔබට කෙරෙන ගෞරවණීය ඇරයුමයි!";
+  } else if (guestSuffix === 'couple') {
+    sinhalaInvitationText = "ඔබ දෙපළට කෙරෙන ගෞරවණීය ඇරයුමයි!";
+  } else if (guestSuffix === 'family') {
+    sinhalaInvitationText = "ඔබ සැමට කෙරෙන ගෞරවණීය ඇරයුමයි!";
+  } else if (guestPrefix) {
+    if (guestPrefix === "Mr. & Mrs.") {
+      sinhalaInvitationText = "ඔබ දෙපළට කෙරෙන ගෞරවණීය ඇරයුමයි!";
+    } else if (guestPrefix === "Family") {
+      sinhalaInvitationText = "ඔබ සැමට කෙරෙන ගෞරවණීය ඇරයුමයි!";
+    } else {
+      sinhalaInvitationText = "ඔබට කෙරෙන ගෞරවණීය ඇරයුමයි!";
+    }
+  }
+
   const [hasStarted, setHasStarted] = useState(false);
   const [isOpened, setIsOpened] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -337,7 +359,7 @@ export default function WeddingInvitation() {
               muted={!hasStarted}
               playsInline
               preload="auto"
-              className={`w-full h-full object-cover transition-all duration-[2000ms] ease-out ${!hasStarted ? "blur-xl scale-110 opacity-60" : "blur-0 scale-100 opacity-100"
+              className={`w-full h-full object-cover object-center transition-all duration-[2000ms] ease-out ${!hasStarted ? "blur-xl scale-110 opacity-60" : "blur-0 scale-100 opacity-100"
                 }`}
               onEnded={() => setIsOpened(true)}
               onError={() => setIsOpened(true)}
@@ -448,7 +470,7 @@ export default function WeddingInvitation() {
 
             <section className="w-full relative flex items-start justify-center overflow-hidden bg-white min-h-[100svh] pt-12 md:pt-32 pb-12">
               <div
-                className="absolute inset-0 bg-center bg-cover"
+                className="absolute inset-0 bg-[65%_center] md:bg-[center_center] bg-cover"
                 style={{ backgroundImage: `url("${encodeURI(HERO_BACKGROUND_IMAGE)}")` }}
                 aria-hidden="true"
               />
@@ -493,6 +515,11 @@ export default function WeddingInvitation() {
                     <span className="inline-flex flex-col items-center"><span className="text-[0.8em] md:text-[0.65em] font-sans uppercase opacity-100">04 December 2026</span><span>{INVITATION.date.displayLong}</span></span> · <span className="inline-flex flex-col items-center"><span className="text-[0.8em] md:text-[0.65em] font-sans uppercase opacity-100">08:26 AM</span><span>{INVITATION.time.ceremonyStart}</span></span>
                   </p>
 
+                  {guestName && (
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl text-black drop-shadow-[0_0_8px_rgba(255,255,255,0.9)] font-bold mb-4 md:mb-6">
+                      Dear {guestPrefix} {guestName},
+                    </h3>
+                  )}
                   <p className="text-black drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] text-sm sm:text-base md:text-lg tracking-[0.1em] sm:tracking-[0.15em] font-semibold leading-relaxed max-w-2xl mx-auto"><span className="inline-flex flex-col items-center justify-center gap-1 text-center"><span className="text-[0.75em] md:text-[0.8em] md:text-[0.65em] uppercase tracking-[0.2em] font-sans opacity-100 leading-none mt-1 mb-1">Together with our families, we joyfully invite you to celebrate our special day.</span><span className="leading-none">අපගේ ආදරණීය පවුල් සමඟ එක්ව, අපගේ ජීවිතයේ සොඳුරුතම දිනය සැමරීමට ඔබගේ ගෞරවනීය පැමිණීම ආදරයෙන් බලාපොරොත්තු වෙමු.</span></span></p>
 
                   <a
@@ -526,7 +553,7 @@ export default function WeddingInvitation() {
               className="relative pt-12 md:pt-20 pb-24 md:pb-32 w-full flex flex-col items-center overflow-hidden bg-white"
             >
               <div
-                className="absolute inset-0 bg-center bg-cover"
+                className="absolute inset-0 bg-[center_center] bg-cover"
                 style={{ backgroundImage: `url("${encodeURI(DETAILS_BACKGROUND_IMAGE)}")` }}
                 aria-hidden="true"
               />
@@ -573,7 +600,7 @@ export default function WeddingInvitation() {
                       අතිනත ගැනීමේ ප්‍රීතිය නිමිත්තෙන් පැවැත්වෙන ප්‍රිය සම්භාෂණයට සහභාගී වන මෙන්
                       <br />
                       <span className="text-[#d4af37] font-bold text-base md:text-lg my-2 block">
-                        ඔබට / ඔබ දෙපළට / ඔබ සැමට කෙරෙන ගෞරවණීය ඇරයූමයි!
+                        {sinhalaInvitationText}
                       </span>
                     </p>
                   </div>
@@ -675,7 +702,7 @@ export default function WeddingInvitation() {
 
             <section className="relative py-28 md:py-48 overflow-hidden bg-white">
               <div
-                className="absolute inset-0 bg-center bg-cover"
+                className="absolute inset-0 bg-[center_center] bg-cover"
                 style={{ backgroundImage: `url("${encodeURI(TIMELINE_BACKGROUND_IMAGE)}")` }}
                 aria-hidden="true"
               />
@@ -1119,7 +1146,7 @@ export default function WeddingInvitation() {
                             <img
                               src={img}
                               alt=""
-                              className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
+                              className="w-full h-full object-cover object-center transition-transform duration-[2s] group-hover:scale-105"
                               loading="lazy"
                             />
                             <div className="absolute inset-4 border border-white/20 rounded-[2rem] z-20 pointer-events-none group-hover:inset-6 transition-all duration-700" />
@@ -1134,7 +1161,7 @@ export default function WeddingInvitation() {
 
             <section className="relative py-28 md:py-48 overflow-hidden bg-white">
               <div
-                className="absolute inset-0 bg-center bg-cover"
+                className="absolute inset-0 bg-[center_center] bg-cover"
                 style={{ backgroundImage: `url("${encodeURI(WISHES_BACKGROUND_IMAGE)}")` }}
                 aria-hidden="true"
               />
@@ -1257,7 +1284,7 @@ export default function WeddingInvitation() {
 
             <section className="w-full relative overflow-hidden py-24 md:py-32 bg-white">
               <div
-                className="absolute inset-0 bg-center bg-cover"
+                className="absolute inset-0 bg-[center_center] bg-cover"
                 style={{ backgroundImage: `url("${encodeURI(DETAILS_BACKGROUND_IMAGE)}")` }}
                 aria-hidden="true"
               />
