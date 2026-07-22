@@ -686,11 +686,16 @@ export default function WeddingInvitation() {
                           <MapPin className="w-4 h-4 text-[#8c6b2b]" />
                         </div>
                         <div>
-                          <div className="text-[9px] tracking-[0.5em] font-bold text-[#8c6b2b]/40">
+                          <div className="text-[9px] tracking-[0.5em] font-bold text-[#8c6b2b]/40 mb-1">
                             ස්ථානය
                           </div>
-                          <div className="text-sm md:text-base text-[#8c6b2b] tracking-wide font-bold">
-                            {INVITATION.venue.name}, {INVITATION.venue.city}
+                          <div className="flex flex-col gap-1">
+                            <div className="text-sm md:text-base text-[#8c6b2b] tracking-wide font-bold">
+                              Waters Edge - Eagle Hall, Battaramulla
+                            </div>
+                            <div className="text-[10px] md:text-xs text-[#8c6b2b]/80 tracking-wide font-medium">
+                              {INVITATION.venue.name}, {INVITATION.venue.city}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -859,9 +864,14 @@ export default function WeddingInvitation() {
                     </div>
                   </div>
 
-                  <h2 className="text-5xl md:text-9xl bg-gradient-to-br from-[#d4af37] to-[#8c6b2b] bg-clip-text text-transparent leading-tight font-light tracking-tight relative">
-                    {INVITATION.venue.name}
-                  </h2>
+                  <div className="flex flex-col items-center gap-4">
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl bg-gradient-to-br from-[#d4af37] to-[#8c6b2b] bg-clip-text text-transparent leading-tight font-light tracking-tight relative px-4">
+                      Waters Edge - Eagle Hall, Battaramulla
+                    </h2>
+                    <h3 className="text-base md:text-xl text-[#8c6b2b]/80 font-medium tracking-wide">
+                      {INVITATION.venue.name}, {INVITATION.venue.city}
+                    </h3>
+                  </div>
 
                   <div className="max-w-xl mx-auto pt-10 relative">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-px bg-[#fef08a]" />
@@ -899,9 +909,14 @@ export default function WeddingInvitation() {
                               <h4 className="text-[#8c6b2b]/40 font-bold text-[10px] tracking-[0.5em]">
                                 ගමනාන්තය
                               </h4>
-                              <p className="text-xl md:text-2xl text-[#8c6b2b] leading-relaxed tracking-wide font-bold">
-                                {INVITATION.venue.name}, {INVITATION.venue.city}
-                              </p>
+                              <div className="flex flex-col gap-1">
+                                <p className="text-xl md:text-2xl text-[#8c6b2b] leading-relaxed tracking-wide font-bold">
+                                  Waters Edge - Eagle Hall, Battaramulla
+                                </p>
+                                <p className="text-sm md:text-base text-[#8c6b2b]/80 leading-relaxed tracking-wide font-medium">
+                                  {INVITATION.venue.name}, {INVITATION.venue.city}
+                                </p>
+                              </div>
                             </div>
                           </div>
 
@@ -1313,6 +1328,7 @@ export default function WeddingInvitation() {
                   <p className="text-[10px] md:text-xs tracking-[0.5em] text-[#8c6b2b]/50 font-bold">
                     © 2026 <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Chandula</span><span>{INVITATION.couple.bride}</span></span> සහ <span className="inline-flex flex-col items-center justify-center"><span className="text-[0.4em] md:text-[0.35em] font-sans uppercase tracking-[0.2em] opacity-100 mb-2 leading-none">Lahiru</span><span>{INVITATION.couple.groom}</span></span>
                   </p>
+                  <p className="text-[#8c6b2b] text-xs mt-3 font-sans tracking-wider font-medium">Want a beautiful wedding website like this? Create yours with <a target="_blank" rel="noreferrer" className="text-[#5a441b] font-bold hover:text-[#D4AF37] underline" href="https://wa.me/94707819074">invitemint</a></p>
                 </motion.div>
               </div>
             </section>
